@@ -138,6 +138,75 @@ main { display: block; }
 .page-hero .lead { color: var(--color-cream-on-navy); }
 @media (min-width: 60rem) { .page-hero__inner { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--space-2xl); } }
 
+/* ---------- Mobile Header & Hero Adjustments (< 48rem) ---------- */
+@media (max-width: 48rem) {
+  :root {
+    --frame: 8px;
+    --nav-h: 56px;
+  }
+
+  .site-head__inner {
+    border-radius: 16px;
+  }
+  .brand img {
+    width: 30px;
+  }
+  .brand span {
+    font-size: 1.2rem;
+  }
+
+  /* Home hero on mobile: compact, punchy, doesn't overwhelm the viewport */
+  .hero {
+    margin-top: calc(var(--frame) + var(--nav-h) + var(--space-xs));
+    min-height: clamp(380px, 54svh, 480px);
+    border-radius: 20px;
+  }
+  .hero__bottom {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    gap: var(--space-md);
+  }
+  .hero h1 {
+    font-size: clamp(1.85rem, 7.5vw, 2.6rem);
+    line-height: 1.05;
+  }
+  .hero .lead {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .hero__aside {
+    gap: var(--space-md);
+  }
+  .hero .btn {
+    min-height: 46px;
+    padding: 0 var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  /* Inner page hero on mobile: elegant, concise, content immediately accessible */
+  .page-hero {
+    min-height: clamp(240px, 32svh, 320px);
+    border-radius: 20px;
+  }
+  .page-hero:not(.page-hero--photo) {
+    min-height: auto;
+  }
+  .page-hero__inner {
+    padding-top: calc(var(--nav-h) + var(--space-md));
+    padding-bottom: var(--space-md);
+    padding-inline: var(--space-md);
+    gap: var(--space-sm);
+  }
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 6.5vw, 2.4rem);
+    line-height: 1.05;
+  }
+  .page-hero .lead {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+}
+
 /* ---------- Words that light up as you scroll ---------- */
 .glow { font: 700 clamp(1.6rem, 2.4vw + 1rem, 3.4rem)/1.22 var(--font-display); letter-spacing: -0.02em; color: var(--color-head); max-width: 26ch; text-wrap: pretty; }
 .glow--xl { font-size: clamp(2.6rem, 6.5vw + 0.5rem, 7rem); line-height: 1; font-weight: 800; max-width: none; }
